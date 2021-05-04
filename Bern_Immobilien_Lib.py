@@ -116,7 +116,7 @@ def plot_line_year(dataframe, column, aggr = "count", plot_height = 300, plot_wi
     p.left[0].formatter.use_scientific = False
     show(p)
     
-def plot_line_kategorical(dataframe, column, Zeit_dauer = "Jahr", plot_height = 300, plot_width = 600):
+def plot_line_kategorical(dataframe, column, aggr = "count", Zeit_dauer = "Jahr", plot_height = 300, plot_width = 600):
 
     colors = itertools.cycle(palette) 
     
@@ -124,11 +124,11 @@ def plot_line_kategorical(dataframe, column, Zeit_dauer = "Jahr", plot_height = 
     
         Z_Spalte = "JahrVerkauft"
         
-        if Statistik == "mean":
+        if aggr == "mean":
             df = dataframe.groupby([Z_Spalte, column])['Preis'].mean().unstack()
         else: 
             df = dataframe.groupby([Z_Spalte, column])['Preis'].count().unstack()
-        p = figure(plot_width=plot_width, plot_height=plot_height, title=column, tooltips=[("Name","$name"), ("Preis", "@$name")])
+        p = figure(plot_width=plot_width, plot_height=plot_height, title=column, tooltips=[("Name","$name"), ("Preis"+"_"+aggr, "@$name")])
         source = ColumnDataSource(df)
         for column_id, color in zip(df,colors):
             p.line(Z_Spalte, column_id, source=source, name=column_id, legend='Name = {}'.format(column_id), color=color)
@@ -138,11 +138,11 @@ def plot_line_kategorical(dataframe, column, Zeit_dauer = "Jahr", plot_height = 
     
         Z_Spalte = "DatumVerkauft"
         
-        if Statistik == "mean":
+        if aggr == "mean":
             df = dataframe.groupby([Z_Spalte, column])['Preis'].mean().unstack()
         else: 
             df = dataframe.groupby([Z_Spalte, column])['Preis'].count().unstack()
-        p = figure(plot_width=plot_width, plot_height=plot_height, title=column, tooltips=[("Name","$name"), ("Preis", "@$name")])
+        p = figure(plot_width=plot_width, plot_height=plot_height, title=column, tooltips=[("Name","$name"), ("Preis"+"_"+aggr, "@$name")])
         source = ColumnDataSource(df)
         for column_id, color in zip(df,colors):
             p.line(Z_Spalte, column_id, source=source, name=column_id, legend='Name = {}'.format(column_id), color=color)
