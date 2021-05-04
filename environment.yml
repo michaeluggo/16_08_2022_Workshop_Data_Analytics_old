@@ -5,6 +5,13 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=1_llvm
+  - python=3.8.8=hffdb5ce_0_cpython
+  - python-dateutil=2.8.1=py_0
+  - python-editor=1.0.4=py_0
+  - python-graphviz=0.16=pyh243d235_2
+  - python-json-logger=2.0.1=pyh9f0ad1d_0
+  - python-jsonrpc-server=0.4.0=pyh9f0ad1d_0
+  - python_abi=3.8=1_cp38
   - pandas=1.2.3=py38h51da96c_0   
   - pandas-profiling=2.11.0=pyhd8ed1ab_0
   - matplotlib-base=3.4.1=py38hcc49a3a_0
