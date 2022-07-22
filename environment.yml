@@ -5,7 +5,7 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=1_llvm
-  - bokeh=2.3.0=py38h578d9bd_0
+  - bokeh=2.4.3=py38h578d9bd_0
   - python=3.8.8=hffdb5ce_0_cpython
   - python-dateutil=2.8.1=py_0
   - python-editor=1.0.4=py_0
